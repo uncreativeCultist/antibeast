@@ -34,22 +34,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-#    if message.author == client.user:
-#        return
     if message.guild.id == server_id:
         rating=0
         timedout=0
         uid = message.author.id
         for image_url in get_image_urls(message):
-            print(image_url)
             subprocess.run(["curl", f"{image_url}", "-o", "temp"]) # i dont like this but it works and i'm too lazy to fix. luna, please add details.
             image = Image.open("temp")
             gray_image = image.convert("L")
             text = pytesseract.image_to_string(gray_image)
             clean_text = text.replace("\x0c", "").strip()
             nice_text=clean_text.lower()
-            print(nice_text)
-            print()
             if "mrbeast" in nice_text:
                 rating = rating+1
             if "joined april" in nice_text:
@@ -90,7 +85,6 @@ async def on_message(message):
             if rating > 2:
                 await message.reply(f"hi there! it looks like you tried to post one of those crypto scam images. if this is incorrect, please contact the mod team <3 \n-# Debug info: sr:{rating}")
                 await message.delete()
-                print("deleted scam link")
 
             subprocess.run(["rm", "temp"])
         
