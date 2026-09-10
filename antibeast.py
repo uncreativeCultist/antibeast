@@ -26,7 +26,10 @@ def get_image_urls(message):
     return urls
 
 # and thus begins the stolen code (https://discordpy.readthedocs.io/en/stable/quickstart.html)
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
@@ -51,17 +54,27 @@ async def on_message(message):
                 rating = rating+1
             if "follow me for a" in nice_text:
                 rating = rating+1
+            if "beast games" in nice_text:
+                rating = rating+1
             if "crypto" in nice_text:
                 rating = rating+2
             if "media personality" in nice_text:
                 rating = rating+1
             if "kasowin" in nice_text:
                 rating = rating+2
+            if "lacewin" in nice_text:
+                rating = rating+2
+            if "haveawin" in nice_text:
+                rating = rating+2
+            if "vip-club" in nice_text:
+                rating = rating+2
             if "vyro" in nice_text:
                 rating = rating+1
             if "gambwex" in nice_text:
                 rating = rating+2
             if "bonus" in nice_text:
+                rating = rating+1
+            if "withdraw" in nice_text:
                 rating = rating+1
             if "reward" in nice_text:
                 rating = rating+1
