@@ -1,6 +1,7 @@
-# antibeast
-rudimentary discord bot to stop crypto scams from flooding your server  
+![antibeast - rudimentary discord bot to stop crypto scams in your server](https://github.com/uncreativeCultist/antibeast/blob/9a38a5a318cd21030849f69c048cddeaf4779e79/.github/repo%20assets/antibeastpromo.png)
 
+
+    
 # how to use
 if you can't be bothered to host antibeast yourself, you can use [my instance](https://discord.com/oauth2/authorize?client_id=1547661427521622146).  
 otherwise, look below for selfhosting instructions
